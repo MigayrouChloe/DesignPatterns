@@ -8,9 +8,9 @@ namespace MementoPattern
 {
     public class CharriotOption
     {
-        protected List<OptionVehicule> _options { get; set; }
+        protected List<OptionVehicule> _options = new List<OptionVehicule>();
 
-        public Memento AjouteOption(OptionVehicule nouvelleOption)
+        public IMemento AjouteOption(OptionVehicule nouvelleOption)
         {
             Memento memento = new Memento();
             memento.SetEtat(_options);
@@ -22,13 +22,25 @@ namespace MementoPattern
 
             _options.Add(nouvelleOption);
 
-            return memento;
 
+            return memento;
         }
 
-        public void Annule(Memento memento)
+        public void Annule(IMemento iMemento)
         {
-            _options = memento.GetEtat();
+            Memento mementoInstance = iMemento as Memento;
+            if (mementoInstance == null)
+                return;
+            _options = mementoInstance.GetEtat();
+        }
+
+        public void Affiche()
+        {
+            Console.WriteLine("Contenu du chariot d'option :");
+            foreach (var item in _options)
+            {
+                item.Affiche();
+            }
         }
 
     }

@@ -10,11 +10,9 @@ namespace MementoPattern
     {
         static void Main(string[] args)
         {
-            User Test = new User();
-            test.
-
-            Console.WriteLine("Quelle option voulez vous ajouter à votre charriot?");
-            Test.AfficheCaracteristiquesOptions();
+            User monUtilisateur = new User();
+            monUtilisateur.GestionSaisie();
+            
         }
     }
 }

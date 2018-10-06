@@ -15,6 +15,7 @@ namespace MementoPattern
         {
             this._nom = nom;
             _optionsIncompatibles = new List<OptionVehicule>();
+            _optionsIncompatibles.Add(this);
         }
 
         public void AjouteOptionIncompatibles(OptionVehicule optionIncompatible)
@@ -22,7 +23,6 @@ namespace MementoPattern
             if (!_optionsIncompatibles.Contains(optionIncompatible))
             {
                 _optionsIncompatibles.Add(optionIncompatible);
-                optionIncompatible.AjouteOptionIncompatibles(this);
             }
         }
 
@@ -36,5 +36,9 @@ namespace MementoPattern
             Console.WriteLine("\n");
         }
 
+        public void Affiche()
+        {
+            Console.Write($"{_nom.ToUpper()}");
+        }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MementoPattern
 {
-    public class Memento
+    public class Memento : IMemento
     {
         protected List<OptionVehicule> _etat;
 
@@ -14,9 +14,11 @@ namespace MementoPattern
         {
             return _etat;
         }
-        public void SetEtat (List<OptionVehicule> etatCharriot)
+        public void SetEtat(List<OptionVehicule> etatCharriot)
         {
-            this._etat = etatCharriot;
+                foreach (OptionVehicule option in etatCharriot)
+                    this._etat.Add(option);
+
         }
     }
 }
