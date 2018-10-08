@@ -34,6 +34,7 @@ namespace MementoIntermediaite
 
         public void RestoreMemento(Memento mementoARestaurer)
         {
+            this._optionsCharriot.Clear();
             foreach(OptionVehicule item in mementoARestaurer.OptionsSauvegardees)
             {
                 this._optionsCharriot.Add(item);
