@@ -24,8 +24,12 @@ namespace MementoIntermediaite
 
         public Memento SaveMemento()
         {
-            //Creer une nouvelle liste ici pour casser la reference entre les deux listes d'option
-            return new Memento(_optionsCharriot);
+            List<OptionVehicule> nouvelleReferenceListe = new List<OptionVehicule>();
+            foreach (OptionVehicule item in _optionsCharriot)
+            {
+                nouvelleReferenceListe.Add(item);
+            }
+            return new Memento(nouvelleReferenceListe);
         }
 
         public void RestoreMemento(Memento mementoARestaurer)
